@@ -1,0 +1,24 @@
+disabled_rules:
+  - cyclomatic_complexity
+  - file_length
+  - function_body_length
+  - identifier_name
+  - nesting
+  - trailing_comma
+  - type_body_length
+  - type_name
+  - xctfail_message
+opt_in_rules:
+  - closure_parameter_position
+  - contains_over_first_not_nil
+  - empty_count
+  - explicit_init
+  - fatal_error_message
+  - first_where
+  - multiline_arguments
+  - multiline_parameters
+  - redundant_nil_coalescing
+  - unneeded_parentheses_in_closure_argument
+
+line_length: 100
+reporter: "xcode"

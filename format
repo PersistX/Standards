@@ -1,0 +1,23 @@
+#!/bin/bash
+#
+# Format Swift code with swiftformat.
+#
+# Pass the paths of all source folders as arguments.
+
+RULES="
+  --header strip
+  --indent 4
+  --ranges nospace
+  --wraparguments beforefirst
+  --wrapelements beforefirst
+  --disable redundantReturn
+  --disable spaceInsideBrackets
+"
+
+if ! [ -x "$(command -v swiftformat)" ]; then
+  echo 'error: swiftformat is not installed.' >&2
+  exit 1
+fi
+
+swiftformat $RULES $@
+

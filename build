@@ -1,0 +1,9 @@
+#!/bin/bash
+#
+# Execute all build-time scripts.
+#
+# Pass the paths of all source folders as arguments.
+
+$(dirname $0)/format $@
+$(dirname $0)/lint $@
+
