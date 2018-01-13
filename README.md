@@ -5,7 +5,10 @@ Code standards for PersistX
 Add a _Run Script_ phase to each of your Xcode targets:
 
 ```
-"${SRCROOT}/Carthage/Checkouts/Standards/build" "${SRCROOT}/Source"
+if [ -x "${SRCROOT}/Carthage/Checkouts/Standards" ]
+then
+  "${SRCROOT}/Carthage/Checkouts/Standards/build" "${SRCROOT}/Tests"
+fi
 ```
 
 The first first path should point to the location of the `build` script. Pass the paths to all of
