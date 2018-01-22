@@ -4,6 +4,11 @@
 #
 # Pass the paths of all source folders as arguments.
 
+if ! [ -z ${CARTHAGE_PATH+x} ]; then
+  echo "Building with Carthage. Skipping Standards checks."
+  exit 0
+fi
+
 $(dirname $0)/format $@
 $(dirname $0)/lint $@
 
