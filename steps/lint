@@ -4,13 +4,19 @@
 #
 # Pass the paths of all source folders as arguments.
 
+set -e
+
 if ! [ -x "$(command -v swiftlint)" ]; then
   echo 'error: swiftlint is not installed.' >&2
   exit 1
 fi
 
+count=0
 for FILE in "$@"
 do
-  swiftlint --path $FILE --config $(dirname $0)/.swiftlint.yml
+  export SCRIPT_INPUT_FILE_$count=$FILE
+  count=$((count + 1))
 done
+export SCRIPT_INPUT_FILE_COUNT=$count
 
+swiftlint --use-script-input-files --config $(dirname $0)/../.swiftlint.yml --strict
