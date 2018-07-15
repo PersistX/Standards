@@ -1,7 +1,0 @@
-#!/bin/bash
-#
-# Install the git hooks.
-#
-# This will change the git hook directory for the current repository.
-
-git config core.hooksPath $(dirname $0)/hooks

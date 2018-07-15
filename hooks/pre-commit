@@ -1,9 +1,0 @@
-#!/bin/bash
-#
-# Pre-commit hook that:
-# 1. Formats Swift code with swiftformat
-# 2. Lints Swift code and aborts the commit if there are any violations
-
-set -e
-
-$(dirname $0)/../run $(git diff --name-only --cached --diff-filter=d)
