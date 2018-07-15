@@ -1,0 +1,10 @@
+#!/bin/bash
+#
+# Test that the code has been linted and formatted correctly.
+
+set -e
+
+$(dirname $0)/run
+
+# Fail if there are any changes after formatting
+git diff-index --quiet HEAD

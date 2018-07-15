@@ -1,0 +1,17 @@
+#!/bin/bash
+#
+# Run the standards against the passed files.
+
+set -e
+
+if [ $# -eq 0 ]; then
+  # Run against all the files in the repo if none are specified.
+  # Use the mode bits to exclude submodules.
+  files=$(git ls-files --stage|grep -v '^160000'|awk '{print $4}')
+else
+  files=$@
+fi
+
+swift=$(echo "$files" | grep "\\.swift$")
+$(dirname $0)/steps/format $swift
+$(dirname $0)/steps/lint $swift
