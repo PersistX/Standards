@@ -7,3 +7,6 @@
 set -e
 
 $(dirname $0)/../run $(git diff --name-only --cached --diff-filter=d)
+
+# Re-add files in the index so that formatted files are added
+git add -u
