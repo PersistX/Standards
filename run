@@ -2,8 +2,6 @@
 #
 # Run the standards against the passed files.
 
-set -e
-
 if [ $# -eq 0 ]; then
   # Run against all the files in the repo if none are specified.
   # Use the mode bits to exclude submodules.
@@ -13,5 +11,12 @@ else
 fi
 
 swift=$(echo "$files" | grep "\\.swift$")
-$(dirname $0)/steps/format $swift
-$(dirname $0)/steps/lint $swift
+
+# Set only right before the actual checks to avoid failing from grep when there
+# are no files.
+set -e
+
+if [[ $swift ]]; then
+  $(dirname $0)/steps/format $swift
+  $(dirname $0)/steps/lint $swift
+fi
