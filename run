@@ -7,7 +7,7 @@ if [ $# -eq 0 ]; then
   # Use the mode bits to exclude submodules.
   files=$(git ls-files --stage|grep -v '^160000'|awk '{print $4}')
 else
-  files=$@
+  files=$(echo "$@" | tr " " "\n")
 fi
 
 swift=$(echo "$files" | grep "\\.swift$")

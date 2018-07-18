@@ -6,7 +6,9 @@
 
 set -e
 
-$(dirname $0)/../run $(git diff --name-only --cached --diff-filter=d)
+files=$(git diff --name-only --cached --diff-filter=d)
+
+$(dirname $0)/../run $files
 
 # Re-add files in the index so that formatted files are added
-git add -u
+git add $files
