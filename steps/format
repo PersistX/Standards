@@ -8,7 +8,7 @@ RULES="
   --indent 4
   --ranges nospace
   --wraparguments beforefirst
-  --wrapelements beforefirst
+  --wrapcollections beforefirst
   --disable redundantReturn
   --disable spaceInsideBrackets
 "
