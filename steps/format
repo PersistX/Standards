@@ -8,9 +8,8 @@ RULES="
   --indent 4
   --ranges nospace
   --wraparguments beforefirst
-  --wrapelements beforefirst
-  --disable redundantReturn
-  --disable spaceInsideBrackets
+  --wrapcollections beforefirst
+  --disable redundantParens,redundantReturn,spaceInsideBrackets
 "
 
 if ! [ -x "$(command -v swiftformat)" ]; then
