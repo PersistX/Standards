@@ -9,8 +9,7 @@ RULES="
   --ranges nospace
   --wraparguments beforefirst
   --wrapcollections beforefirst
-  --disable redundantReturn
-  --disable spaceInsideBrackets
+  --disable redundantParens,redundantReturn,spaceInsideBrackets
 "
 
 if ! [ -x "$(command -v swiftformat)" ]; then
